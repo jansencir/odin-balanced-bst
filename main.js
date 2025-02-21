@@ -47,15 +47,21 @@ class Tree {
 
   insert(value, node = this.tree) {
     // Add the value as a Node to an empty array
-
-    if (node == null) {
-      console.log("Null Root");
-      return new Node(value);
-    } else {
-      "Didn't work"
+    if (!this.tree) {
+      console.log("Here");
+      return this.tree = new Node(value);
     }
 
-    return node;
+    // If you reached an empty node, insert the value
+    // if (node === null) {
+    //   console.log("Null Root");
+    //   console.log(new);
+    //   return new Node(value);
+    // } else {
+    //   "Didn't work"
+    // }
+
+    // return node;
 
     // Take the value, and TREE as input (the first one will be this.root)
     // Turn the value into a new Node
