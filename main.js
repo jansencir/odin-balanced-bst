@@ -52,17 +52,6 @@ class Tree {
       return this.tree = new Node(value);
     }
 
-    // If you reached an empty node, insert the value
-    // if (node === null) {
-    //   console.log("Null Root");
-    //   console.log(new);
-    //   return new Node(value);
-    // } else {
-    //   "Didn't work"
-    // }
-
-    // return node;
-
     // Take the value, and TREE as input (the first one will be this.root)
     // Turn the value into a new Node
     // Take the tree and find the root
@@ -70,13 +59,31 @@ class Tree {
     // If nodeRoot === null { then it means we've reached a suitable location for the node Insert or it's empty }
     // Else if the value is less than the nodeRoot, go left by calling insert(value, node.left);
     // Else if the value is greater than the nodeRoot, go left by calling insert(value, node.right);
+
+    // If an empty node is reached, insert the value there
+    if (node === null) {
+      console.log("Null");
+      return new Node(value);
+    }
+
+    // If the value exists, return, else traverse the tree for a suitable insert node
+    if (node.root === value) {
+      console.log("Exists");
+      return;
+    } else if (value < node.root) {
+      node.left = this.insert(value, node.left);
+    } else if (value > node.root) {
+      node.right =  this.insert(value, node.right);
+    }
+    return node;
   }
 }
 
 // let myArray = [1, 2, 3, 4, 5, 6, 7];
-let myArray = [];
+let myArray = [2, 4, 5, 8, 10, 12, 14];
+// let myArray = [];
 let myTree = new Tree(myArray);
 
-myTree.insert(4);
+myTree.insert(9);
 
 myTree.viewTree();
