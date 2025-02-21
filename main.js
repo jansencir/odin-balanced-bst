@@ -27,10 +27,6 @@ class Tree {
   // Build a tree out of the array
   buildTree(array, start, end) {
     // Build tree will take in an array and build the tree with it
-    // If given an empty array, return a Node that you can still work with
-    if (array.length === 0) {
-      return new Node([]);
-    }
 
     if (start > end) {
       return null;
@@ -49,10 +45,32 @@ class Tree {
     return root;
   }
 
+  insert(value, node = this.tree) {
+    // Add the value as a Node to an empty array
+
+    if (node == null) {
+      console.log("Null Root");
+      return new Node(value);
+    } else {
+      "Didn't work"
+    }
+
+    return node;
+
+    // Take the value, and TREE as input (the first one will be this.root)
+    // Turn the value into a new Node
+    // Take the tree and find the root
+    // If value === nodeRoot { then it exists already }
+    // If nodeRoot === null { then it means we've reached a suitable location for the node Insert or it's empty }
+    // Else if the value is less than the nodeRoot, go left by calling insert(value, node.left);
+    // Else if the value is greater than the nodeRoot, go left by calling insert(value, node.right);
+  }
 }
 
 // let myArray = [1, 2, 3, 4, 5, 6, 7];
 let myArray = [];
 let myTree = new Tree(myArray);
+
+myTree.insert(4);
 
 myTree.viewTree();
