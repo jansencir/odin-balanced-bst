@@ -77,13 +77,20 @@ class Tree {
     }
     return node;
   }
+
+  // Delete a given value if it exists in the tree
+  delete(value, node = this.tree) {
+    // If the tree is empty, don't bother
+    if (node === null) {
+      console.log("Empty");
+      return;
+    }
+  }
 }
 
 // let myArray = [1, 2, 3, 4, 5, 6, 7];
-let myArray = [2, 4, 5, 8, 10, 12, 14];
-// let myArray = [];
+// let myArray = [2, 4, 5, 8, 10, 12, 14];
+let myArray = [];
 let myTree = new Tree(myArray);
 
-myTree.insert(9);
-
-myTree.viewTree();
+myTree.delete();
