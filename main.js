@@ -14,6 +14,11 @@ class Tree {
     this.tree = this.buildTree(this.array, 0, this.array.length - 1);
   }
 
+  // View the tree
+  viewTree() {
+    console.log(this.tree);
+  }
+
   // arraySortRemove(array) sorts and removes duplicates in an array;
   arraySortRemove(array) {
     return array.sort((a, b) => a - b).filter((item, index) => array.indexOf(item) === index);
@@ -22,6 +27,11 @@ class Tree {
   // Build a tree out of the array
   buildTree(array, start, end) {
     // Build tree will take in an array and build the tree with it
+    // If given an empty array, return a Node that you can still work with
+    if (array.length === 0) {
+      return new Node([]);
+    }
+
     if (start > end) {
       return null;
     }
@@ -39,12 +49,10 @@ class Tree {
     return root;
   }
 
-  viewTree() {
-    console.log(this.tree);
-  }
 }
 
-let myArray = [1, 2, 3, 4, 5, 6, 7];
+// let myArray = [1, 2, 3, 4, 5, 6, 7];
+let myArray = [];
 let myTree = new Tree(myArray);
 
 myTree.viewTree();
