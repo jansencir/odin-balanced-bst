@@ -83,8 +83,18 @@ class Tree {
     // If the tree is empty, don't bother
     if (node === null) {
       console.log("Empty");
-      return;
+      return node;
     }
+
+    // Traverse the tree
+    // --If (value is less than the current node) {go left recursively}
+    // --If (value is greater than the current node) {go right recursively}
+    // --Else, you've hit the value (this also catches if there is no value)
+    // ----node at this point refers to the value
+    // ----Check if the node has 0 children
+    // ----If (node.left === null) {return root.right}
+    // ----If (node.right === null) {return root.left}
+    // ----222: Figure out what to do when the node has both a left and right child
   }
 }
 
