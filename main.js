@@ -140,16 +140,16 @@ class Tree {
 
 }
 
-let myArray = [1, 2, 3, 4, 5, 6, 7];
+let myArray = [1, 2, 3, 4, 5, 6];
 // let myArray = [2, 4, 5, 8, 10, 12, 14];
 // let myArray = [];
 let myTree = new Tree(myArray);
 
 // Testing Delete - Delete and Re-Insert the Same Value
 myTree.viewTree();
-myTree.delete(1);
+myTree.delete(6);
 myTree.viewTree();
-myTree.insert(1);
+myTree.insert(6);
 myTree.viewTree();
 
 // ------4
