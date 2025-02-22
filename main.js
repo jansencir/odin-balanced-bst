@@ -140,6 +140,13 @@ class Tree {
     return leftValue;
   }
 
+  // Find the node of a given value
+  find(value, ) {
+    // If the value is null, then we've reached the end and didn't find the value, return value
+    // if: Recursively traverse the BST until you've reached the value
+    // else: return node
+    
+  }
 }
 
 let myArray = [1, 2, 3, 4, 5, 6];
