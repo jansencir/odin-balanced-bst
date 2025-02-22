@@ -159,6 +159,12 @@ class Tree {
       console.log(node);
     }
   }
+
+  // Perform a breadth-first search and return an array of the tree in level order
+  breadthFirstSearch(callback) {
+    // BFS goes down the tree level by level, from left to right
+    // Ex: The dummy tree would return 4 2 6 1 3 5 7
+  }
 }
 
 let myArray = [1, 2, 3, 4, 5, 6, 7];
@@ -170,6 +176,7 @@ let myTree = new Tree(myArray);
 myTree.viewTree();
 myTree.find(8);
 
+// Dummy tree
 // ------4
 // ----2---6
 // ---1-3-5-7
