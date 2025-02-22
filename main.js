@@ -115,6 +115,7 @@ class Tree {
         // console.log(node.left);
         return node.left;
       }
+      // 222: Work on this
       // ----For nodes with 2 children
       // ----node.value = this.moveLeftChild(node.right);
       // ----node.right = delete(node.right, node.root);
