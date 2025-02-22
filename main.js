@@ -149,10 +149,10 @@ let myTree = new Tree(myArray);
 
 // Testing Delete - Delete and Re-Insert the Same Value
 myTree.viewTree();
-myTree.delete(6);
+myTree.delete(5);
 myTree.viewTree();
-myTree.insert(6);
-myTree.viewTree();
+// myTree.insert(6);
+// myTree.viewTree();
 
 // ------4
 // ----2---6
