@@ -94,7 +94,17 @@ class Tree {
     // ----Check if the node has 0 children
     // ----If (node.left === null) {return root.right}
     // ----If (node.right === null) {return root.left}
-    // ----222: Figure out what to do when the node has both a left and right child
+    // ----For nodes with 2 children
+    // ----node.value = this.moveLeftChild(node.right);
+    // ----node.right = delete(node.right, node.root);
+  }
+
+  moveLeftChild(root) {
+    // Right child gets passed in as the root
+    // Grab the data of the right child
+    // While the left child of root is not null (contains a value)
+      // Set the data of the right child to the data of the left child
+      // Set the root (right child) to the left child
   }
 }
 
@@ -104,3 +114,7 @@ let myArray = [];
 let myTree = new Tree(myArray);
 
 myTree.delete();
+
+// ------4
+// ----2---6
+// ---1-3-5-7
