@@ -88,32 +88,69 @@ class Tree {
 
     // Traverse the tree
     // --If (value is less than the current node) {go left recursively}
+    console.log(node.root);
+    if (value < node.root) {
+      console.log("Less than");
+      node.left = this.delete(value, node.left);
+    }
     // --If (value is greater than the current node) {go right recursively}
+    else if (value > node.root) {
+      console.log("Greater than");
+      node.right = this.delete(value, node.right);
+    }
     // --Else, you've hit the value (this also catches if there is no value)
-    // ----node at this point refers to the value
-    // ----Check if the node has 0 children
-    // ----If (node.left === null) {return root.right}
-    // ----If (node.right === null) {return root.left}
-    // ----For nodes with 2 children
-    // ----node.value = this.moveLeftChild(node.right);
-    // ----node.right = delete(node.right, node.root);
+    else {
+      // ----node at this point refers to the value
+      console.log("We found it");
+      console.log(node);
+      // ----Check if the node has 0 children
+      // ----If (node.left === null) {return root.right}
+      if (!node.left) {
+        console.log(node);
+        // console.log(node.right);
+        return node.right;
+      }
+      // ----If (node.right === null) {return root.left}
+      else if (!node.right) {
+        // console.log(node.left);
+        return node.left;
+      }
+      // ----For nodes with 2 children
+      // ----node.value = this.moveLeftChild(node.right);
+      // ----node.right = delete(node.right, node.root);
+      // node.root = this.moveLeftChild(node.right);
+      // node.right = this.delete(node.root, node.right);
+    }
+    // Return the node
+    return node;
   }
 
   moveLeftChild(root) {
     // Right child gets passed in as the root
     // Grab the data of the right child
+    let leftValue = root.root;
     // While the left child of root is not null (contains a value)
+    while (root.left != null) { 
       // Set the data of the right child to the data of the left child
+      leftValue = root.left.root;
       // Set the root (right child) to the left child
+      root = root.left;
+    }
   }
+
 }
 
-// let myArray = [1, 2, 3, 4, 5, 6, 7];
+let myArray = [1, 2, 3, 4, 5, 6, 7];
 // let myArray = [2, 4, 5, 8, 10, 12, 14];
-let myArray = [];
+// let myArray = [];
 let myTree = new Tree(myArray);
 
-myTree.delete();
+// Testing Delete - Delete and Re-Insert the Same Value
+myTree.viewTree();
+myTree.delete(1);
+myTree.viewTree();
+myTree.insert(1);
+myTree.viewTree();
 
 // ------4
 // ----2---6
