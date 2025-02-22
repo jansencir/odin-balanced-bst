@@ -141,25 +141,34 @@ class Tree {
   }
 
   // Find the node of a given value
-  find(value, ) {
+  find(value, node = this.tree) {
     // If the value is null, then we've reached the end and didn't find the value, return value
     // if: Recursively traverse the BST until you've reached the value
     // else: return node
-    
+    if (node === null) {
+      console.log("Null, we've reached the end");
+      return;
+    }
+
+    if (value < node.root) {
+      node.left = this.find(value, node.left);
+    } else if (value > node.root) {
+      node.right = this.find(value, node.right);
+    } else {
+      console.log("Found the node");
+      console.log(node);
+    }
   }
 }
 
-let myArray = [1, 2, 3, 4, 5, 6];
+let myArray = [1, 2, 3, 4, 5, 6, 7];
 // let myArray = [2, 4, 5, 8, 10, 12, 14];
 // let myArray = [];
 let myTree = new Tree(myArray);
 
 // Testing Delete - Delete and Re-Insert the Same Value
 myTree.viewTree();
-myTree.delete(5);
-myTree.viewTree();
-// myTree.insert(6);
-// myTree.viewTree();
+myTree.find(4);
 
 // ------4
 // ----2---6
