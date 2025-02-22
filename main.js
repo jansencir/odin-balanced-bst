@@ -168,7 +168,7 @@ let myTree = new Tree(myArray);
 
 // Testing Delete - Delete and Re-Insert the Same Value
 myTree.viewTree();
-myTree.find(4);
+myTree.find(8);
 
 // ------4
 // ----2---6
