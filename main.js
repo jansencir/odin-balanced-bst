@@ -161,9 +161,24 @@ class Tree {
   }
 
   // Perform a breadth-first search and return an array of the tree in level order
-  breadthFirstSearch(callback) {
+  breadthFirstSearch(tree = this.tree, callback) {
     // BFS goes down the tree level by level, from left to right
     // Ex: The dummy tree would return 4 2 6 1 3 5 7
+
+    // Use a queue to do a level order traversal
+    // --Add the children to the queue, first the left child, then the right
+    // --Repeat until there are no children left
+    // Create an array, insert the root node, then insert left child, then right child
+    // --For every node you hit, add its left and right child to the end of the array
+    // --Print the node (callback)
+    // --Remove the first element after adding its children (if any)
+    // When you hit a node, call the callback (it just prints the current node)
+    // Call self
+    console.log("BFS");
+  }
+
+  printNode(node) {
+    console.log(node.root);
   }
 }
 
@@ -174,7 +189,8 @@ let myTree = new Tree(myArray);
 
 // Testing Delete - Delete and Re-Insert the Same Value
 myTree.viewTree();
-myTree.find(8);
+
+myTree.breadthFirstSearch()
 
 // Dummy tree
 // ------4
