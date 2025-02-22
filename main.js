@@ -119,8 +119,8 @@ class Tree {
       // ----For nodes with 2 children
       // ----node.value = this.moveLeftChild(node.right);
       // ----node.right = delete(node.right, node.root);
-      // node.root = this.moveLeftChild(node.right);
-      // node.right = this.delete(node.root, node.right);
+      node.root = this.moveLeftChild(node.right);
+      node.right = this.delete(node.root, node.right);
     }
     // Return the node
     return node;
@@ -137,6 +137,7 @@ class Tree {
       // Set the root (right child) to the left child
       root = root.left;
     }
+    return leftValue;
   }
 
 }
