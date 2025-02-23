@@ -193,9 +193,6 @@ class Tree {
     }
   }
 
-  printNode(node) {
-    console.log(node.root);
-  }
 }
 
 let myArray = [1, 2, 3, 4, 5, 6, 7];
