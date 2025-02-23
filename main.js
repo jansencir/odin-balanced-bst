@@ -161,7 +161,7 @@ class Tree {
   }
 
   // Perform a breadth-first search and return an array of the tree in level order
-  levelOrder(tree = this.tree, callback) {
+  levelOrder(tree = this.tree) {
     // BFS goes down the tree level by level, from left to right
     // Ex: The dummy tree would return 4 2 6 1 3 5 7
 
