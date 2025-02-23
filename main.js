@@ -188,11 +188,30 @@ let myArray = [1, 2, 3, 4, 5, 6, 7];
 let myTree = new Tree(myArray);
 
 // Testing Delete - Delete and Re-Insert the Same Value
-myTree.viewTree();
+// myTree.viewTree();
 
-myTree.breadthFirstSearch()
+// myTree.breadthFirstSearch()
 
 // Dummy tree
 // ------4
 // ----2---6
 // ---1-3-5-7
+
+
+let testArray = [];
+console.log(testArray);
+
+testArray.push(1);
+console.log(testArray);
+
+testArray.push(2);
+console.log(testArray);
+
+testArray.push(3);
+console.log(testArray);
+
+testArray.shift();
+console.log(testArray);
+
+testArray.shift();
+console.log(testArray);
