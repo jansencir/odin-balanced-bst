@@ -161,7 +161,7 @@ class Tree {
   }
 
   // Perform a breadth-first search and return an array of the tree in level order
-  breadthFirstSearch(tree = this.tree, callback) {
+  levelOrder(tree = this.tree, callback) {
     // BFS goes down the tree level by level, from left to right
     // Ex: The dummy tree would return 4 2 6 1 3 5 7
 
@@ -172,9 +172,25 @@ class Tree {
     // --For every node you hit, add its left and right child to the end of the array
     // --Print the node (callback)
     // --Remove the first element after adding its children (if any)
-    // When you hit a node, call the callback (it just prints the current node)
-    // Call self
-    console.log("BFS");
+
+    // Create an array
+    let queue = [tree];
+
+    // While the length of queue greater than zero
+    // Log the first item of the queue's root
+    // If there is a left child, add that child to queue
+    // If there is a right child, add that child to queue
+    // Repeat this until it's empty
+    while (queue.length > 0) {
+      console.log(queue[0].root);
+      if (queue[0].left) {
+        queue.push(queue[0].left);
+      }
+      if (queue[0].right) {
+        queue.push(queue[0].right);
+      }
+      queue.shift();
+    }
   }
 
   printNode(node) {
@@ -187,10 +203,7 @@ let myArray = [1, 2, 3, 4, 5, 6, 7];
 // let myArray = [];
 let myTree = new Tree(myArray);
 
-// Testing Delete - Delete and Re-Insert the Same Value
-// myTree.viewTree();
-
-// myTree.breadthFirstSearch()
+myTree.levelOrder();
 
 // Dummy tree
 // ------4
@@ -198,20 +211,20 @@ let myTree = new Tree(myArray);
 // ---1-3-5-7
 
 
-let testArray = [];
-console.log(testArray);
+// let testArray = [];
+// console.log(testArray);
 
-testArray.push(1);
-console.log(testArray);
+// testArray.push(1);
+// console.log(testArray);
 
-testArray.push(2);
-console.log(testArray);
+// testArray.push(2);
+// console.log(testArray);
 
-testArray.push(3);
-console.log(testArray);
+// testArray.push(3);
+// console.log(testArray);
 
-testArray.shift();
-console.log(testArray);
+// testArray.shift();
+// console.log(testArray);
 
-testArray.shift();
-console.log(testArray);
+// testArray.shift();
+// console.log(testArray);
