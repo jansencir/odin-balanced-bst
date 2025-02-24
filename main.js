@@ -231,7 +231,7 @@ class Tree {
   }
 
   // Return the height of a given node
-  height(value) {
+  height(value, tree = this.tree) {
     // Create a variable to hold the "height"
     // "height" refers to the number of edges a node can hit until it reaches the bottom of the tree
     // Declare a variable to hold the height of the Node
@@ -239,6 +239,20 @@ class Tree {
     // When that node is hit, make your way to the end of the tree
     // Add 1 to nodeHeight for each node hit after reaching the value
     // Return the height
+
+    // Cannot use recursion as the nodeHeight will be reset
+    // Need to use a different approach, possibly a queue
+
+    // Recursion then queue???
+    // Recursively move through the tree until you find the value;
+    // If (!tree) return 0;
+    // If (tree.root === value) Possible make this a base case???
+    // --Declare nodeHeight = 0;
+    // --Declare queue = [tree];
+    // --while (queue.length !== 0)
+    // ----Do what you did in levelOrder
+    // ----
+    // --return nodeHeight;
   }
 }
 
