@@ -212,6 +212,12 @@ class Tree {
 
   inOrder(tree = this.tree) {
     // Left > Root > Right
+    if (tree === null) {
+      return;
+    }
+    this.inOrder(tree.left);
+    console.log(tree.root);
+    this.inOrder(tree.right);
   }
 
   postOrder(tree = this.tree) {
@@ -224,7 +230,7 @@ let myArray = [1, 2, 3, 4, 5, 6, 7];
 // let myArray = [];
 let myTree = new Tree(myArray);
 
-myTree.preOrder();
+myTree.inOrder();
 
 // Dummy tree
 // ------4
