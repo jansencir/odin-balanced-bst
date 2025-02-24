@@ -160,8 +160,8 @@ class Tree {
     }
   }
 
-  // Perform a breadth-first search and return an array of the tree in level order
-  levelOrder(tree = this.tree) {
+  // Perform a breadth-first search and return it
+  levelOrder() {
     // BFS goes down the tree level by level, from left to right
     // Ex: The dummy tree would return 4 2 6 1 3 5 7
 
@@ -174,7 +174,7 @@ class Tree {
     // --Remove the first element after adding its children (if any)
 
     // Create an array
-    let queue = [tree];
+    let queue = [this.tree];
 
     // While the length of queue greater than zero
     // Log the first item of the queue's root
@@ -193,6 +193,23 @@ class Tree {
     }
   }
 
+  // Perform a depth-first search and return it
+  preOrder(tree = this.tree) {
+    // Root > Left > Right
+    // Take in the Node as an argument (first call is on this.tree)
+    // Base: If the root is null {return}
+    // Print the data in the root node
+    // Recursively call self on the left child
+    // Recursively call self on the right child
+  }
+
+  inOrder(tree = this.tree) {
+    // Left > Root > Right
+  }
+
+  postOrder(tree = this.tree) {
+    // Left > Right > Root
+  }
 }
 
 let myArray = [1, 2, 3, 4, 5, 6, 7];
@@ -200,7 +217,7 @@ let myArray = [1, 2, 3, 4, 5, 6, 7];
 // let myArray = [];
 let myTree = new Tree(myArray);
 
-myTree.levelOrder();
+myTree.preOrder();
 
 // Dummy tree
 // ------4
