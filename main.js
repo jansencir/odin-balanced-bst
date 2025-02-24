@@ -229,6 +229,11 @@ class Tree {
     this.postOrder(tree.right);
     console.log(tree.root);
   }
+
+  // Return the height of a given node
+  height(value) {
+    // 
+  }
 }
 
 let myArray = [1, 2, 3, 4, 5, 6, 7];
