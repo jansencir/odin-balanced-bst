@@ -201,6 +201,13 @@ class Tree {
     // Print the data in the root node
     // Recursively call self on the left child
     // Recursively call self on the right child
+
+    if (tree == null) {
+      return;
+    }
+    console.log(tree.root);
+    this.preOrder(tree.left);
+    this.preOrder(tree.right);
   }
 
   inOrder(tree = this.tree) {
