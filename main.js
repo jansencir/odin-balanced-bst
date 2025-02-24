@@ -222,6 +222,12 @@ class Tree {
 
   postOrder(tree = this.tree) {
     // Left > Right > Root
+    if (tree == null) {
+      return;
+    }
+    this.postOrder(tree.left);
+    this.postOrder(tree.right);
+    console.log(tree.root);
   }
 }
 
@@ -230,7 +236,7 @@ let myArray = [1, 2, 3, 4, 5, 6, 7];
 // let myArray = [];
 let myTree = new Tree(myArray);
 
-myTree.inOrder();
+myTree.postOrder();
 
 // Dummy tree
 // ------4
