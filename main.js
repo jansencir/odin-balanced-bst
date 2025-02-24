@@ -232,7 +232,13 @@ class Tree {
 
   // Return the height of a given node
   height(value) {
-    // 
+    // Create a variable to hold the "height"
+    // "height" refers to the number of edges a node can hit until it reaches the bottom of the tree
+    // Declare a variable to hold the height of the Node
+    // Recursively make your way to the Node value
+    // When that node is hit, make your way to the end of the tree
+    // Add 1 to nodeHeight for each node hit after reaching the value
+    // Return the height
   }
 }
 
