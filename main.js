@@ -367,16 +367,15 @@ class Tree {
 
   // Store the nodes in an array
   storeNodes(root, array) {
+    // If a root is null, return
     if (root === null) {
       return;
     }
 
-    // console.log(root.root);
-    // console.log(root.left);
-    // console.log(root.right);
-
+    // Recursively traverse the left and right sub-tree
     this.storeNodes(root.left, array);
 
+    // Push any root nodes to the array
     array.push(root.root);
 
     this.storeNodes(root.right, array);
@@ -390,16 +389,18 @@ class Tree {
     // Change this.array to the new sorted array
     // Change this.tree to the built Tree
 
+    // Declare array, nodes, to hold all Nodes in the tree
     let nodes = [];
     
     // Traverse the tree and insert any node, that isn't null, to nodes
     this.storeNodes(this.tree, nodes);
-    console.log(nodes);
 
-
+    // Change this Tree's main array to the new array
     this.array = nodes;
+    // Change this Tree's main tree to the new tree
     this.tree = this.buildTree(this.array, 0, this.array.length - 1);
 
+    console.log("Tree has been rebalanced");
     console.log(this.array);
     console.log(this.tree);
   }
