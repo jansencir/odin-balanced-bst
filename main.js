@@ -302,8 +302,30 @@ class Tree {
   }
 
   // Return the depth of a given node
-  depth(value, tree = this.tree) {
+  depth(value, tree = this.tree, count = 1) {
+    // Take in 3 parameters
+    // --value: the value being searched for
+    // --tree: set to this.tree at first, then changed to left/right during recursion
+    // --count: set to 1, will be incremented with each traversal down the tree
 
+    // Base: if the tree is empty, return 0;
+    if (!tree) {
+      console.log("0, Tree Empty or Value Not Found");
+      return;
+    }
+
+    // Base: If we hit the value, return count
+    if (value === tree.root) {
+      console.log(count);
+      return;
+    }
+
+    // Recursion: Traverse through the tree until we hit the value
+    if (value < tree.root) {
+      tree.left = this.depth(value, tree.left, count + 1);
+    } else if (value > tree.root) {
+      tree.right = this.depth(value, tree.right, count + 1);
+    }
   }
 }
 
@@ -312,7 +334,7 @@ let myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 // let myArray = [];
 let myTree = new Tree(myArray);
 
-myTree.height(7);
+myTree.depth(14);
 
 // Dummy tree
 // ------4
