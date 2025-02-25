@@ -327,6 +327,43 @@ class Tree {
       tree.right = this.depth(value, tree.right, count + 1);
     }
   }
+
+  // Method to get the overall height of a tree
+  // Used in the isBalanced method to get height of left and right sub-tree from root node
+  heightTree(tree) {
+    if (tree === null) {
+      return 0;
+    }
+    return 1 + Math.max(this.heightTree(tree.left), this.heightTree(tree.right));
+  }
+
+  // Check if the Tree is balanced
+  isBalanced() {
+    // Find the depth of the lowest Node on the Left Sub-Tree
+    // Find the depth of the lowest Node on the Right Sub-Tree
+
+    // Recursion
+    // Traverse one tree
+
+    // Base: If the tree is empty, it's technically considered balanced
+    if (!this.tree) {
+      console.log("Empty, but technically balanced");
+      return true;
+    }
+
+    let leftSubTreeHeight = this.heightTree(this.tree.left);
+    let rightSubTreeHeight = this.heightTree(this.tree.right);
+
+
+    // Create logic to check if it's balanced
+    if (Math.abs(leftSubTreeHeight - rightSubTreeHeight) <= 1) {
+      console.log("Balanced");
+      return true;
+    } else {
+      console.log("Not Balanced");
+      return false;
+    }
+  }
 }
 
 let myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
@@ -334,7 +371,7 @@ let myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 // let myArray = [];
 let myTree = new Tree(myArray);
 
-myTree.depth(14);
+myTree.isBalanced();
 
 // Dummy tree
 // ------4
