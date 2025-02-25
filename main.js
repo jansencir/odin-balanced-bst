@@ -365,22 +365,64 @@ class Tree {
     }
   }
 
-  
+  // Store the nodes in an array
+  storeNodes(root, array) {
+    if (root === null) {
+      return;
+    }
+
+    // console.log(root.root);
+    // console.log(root.left);
+    // console.log(root.right);
+
+    this.storeNodes(root.left, array);
+
+    array.push(root.root);
+
+    this.storeNodes(root.right, array);
+  }
+
+  // Rebalance an uneven tree
+  rebalance() {
+    // Declare an array to hold all Nodes in the tree
+    // Sort the array
+    // buildTree with the new array
+    // Change this.array to the new sorted array
+    // Change this.tree to the built Tree
+
+    let nodes = [];
+    
+    // Traverse the tree and insert any node, that isn't null, to nodes
+    this.storeNodes(this.tree, nodes);
+    console.log(nodes);
+
+
+    this.array = nodes;
+    this.tree = this.buildTree(this.array, 0, this.array.length - 1);
+
+    console.log(this.array);
+    console.log(this.tree);
+  }
 }
 
-let myArray = [1, 2, 3, 4, 5, 6, 7];
+// let myArray = [1, 2, 3, 4, 5, 6, 7];
 // let myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
-// let myArray = [2, 4, 5, 8, 10, 12, 14];
+let myArray = [2, 4, 5, 8, 10, 12, 14];
 // let myArray = [];
 let myTree = new Tree(myArray);
 
 myTree.viewTree();
-myTree.insert(8);
-myTree.viewTree();
-myTree.isBalanced();
+myTree.insert(1);
+// myTree.viewTree();
+// myTree.isBalanced();
+myTree.insert(100);
+myTree.insert(13);
 myTree.insert(9);
-myTree.viewTree();
-myTree.isBalanced();
+myTree.insert(15);
+myTree.insert(3);
+// myTree.viewTree();
+// myTree.isBalanced();
+myTree.rebalance();
 
 // Dummy tree
 // ------4
