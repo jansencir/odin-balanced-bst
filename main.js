@@ -253,20 +253,72 @@ class Tree {
     // ----Do what you did in levelOrder
     // ----
     // --return nodeHeight;
+
+    // If there is no tree, or you've hit the end, return 0
+    if (!tree) {
+      console.log("0");
+      return;
+    }
+    if (tree.root === value) {
+      // We've found the value
+
+      // Declare a variable to hold the height
+      let nodeHeight = 0;
+      // Initiate a queue by adding the tree, with value as the root, to the queue
+      let queue = [tree];
+
+      // 222: Figure out how this even works
+      // While the queue is NOT empty...
+      while (queue.length > 0) {
+        // Grab the length of the queue
+        let levelSize = queue.length;
+        // This will process each level of the tree
+        for (let i = 0; i < levelSize; i++) {
+          // Grab the first Node in the queue
+          // Also removes the first Node in the queue
+          let node = queue.shift();
+          // If a left tree is present, add it to the queue
+          if (node.left) {
+            queue.push(node.left);
+          }
+          // If a right node is present, add it to the queue
+          if (node.right) {
+            queue.push(node.right);
+          }
+        }
+        // Increment height after processing each level of the tree
+        nodeHeight++;
+      }
+      console.log(nodeHeight);
+      return nodeHeight;
+    }
+
+    // Recursively go through the tree until you hit the node...
+    if (value < tree.root) {
+      tree.left = this.height(value, tree.left);
+    } else if (value > tree.root) {
+      tree.right = this.height(value, tree.right);
+    }
   }
 }
 
-let myArray = [1, 2, 3, 4, 5, 6, 7];
+let myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 // let myArray = [2, 4, 5, 8, 10, 12, 14];
 // let myArray = [];
 let myTree = new Tree(myArray);
 
-myTree.postOrder();
+myTree.height(7);
 
 // Dummy tree
 // ------4
 // ----2---6
 // ---1-3-5-7
+
+// Dummy Tree 2
+// ----------7
+// -----3---------10
+// --1-----5---8------12
+// ---2---4-6---9----11-13
 
 
 // let testArray = [];
