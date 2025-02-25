@@ -364,13 +364,22 @@ class Tree {
       return false;
     }
   }
+
+  
 }
 
-let myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+let myArray = [1, 2, 3, 4, 5, 6, 7];
+// let myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 // let myArray = [2, 4, 5, 8, 10, 12, 14];
 // let myArray = [];
 let myTree = new Tree(myArray);
 
+myTree.viewTree();
+myTree.insert(8);
+myTree.viewTree();
+myTree.isBalanced();
+myTree.insert(9);
+myTree.viewTree();
 myTree.isBalanced();
 
 // Dummy tree
