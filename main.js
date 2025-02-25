@@ -300,6 +300,11 @@ class Tree {
       tree.right = this.height(value, tree.right);
     }
   }
+
+  // Return the depth of a given node
+  depth(value, tree = this.tree) {
+
+  }
 }
 
 let myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
